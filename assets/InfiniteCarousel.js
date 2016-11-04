@@ -3,7 +3,7 @@
 
 	DESCRIPTION: Infinite Carousel widget
 
-	VERSION: 0.1.0
+	VERSION: 0.1.2
 
 	USAGE: var myCarousel = new InfiniteCarousel('Element', 'Options')
 		@param {jQuery Object}
@@ -37,6 +37,7 @@ var InfiniteCarousel = Class.extend({
 			classActiveItem: 'active',
 			classNavDisabled: 'disabled',
 			classInitialized: 'initialized',
+			adjOuterTrack: 80,
 			enableSwipe: true,
 			autoRotate: false,
 			autoRotateInterval: 8000,
@@ -229,22 +230,17 @@ var InfiniteCarousel = Class.extend({
 		this.isAnimating = true;
 
 		this.adjustPosition();
+		this.deactivatePanels();
+		this.activatePanels();
 
 		TweenMax.to(this.$innerTrack, this.options.animationDuration, {
 			x: (this.scrollAmt * this.currentIndex) + '%',
-			// delay: 0.2, //for testing
 			ease: this.options.animationEasing,
-			onStart: function() {
-				self.deactivatePanels();
-				self.activatePanels();
-			},
 			onComplete: function() {
-				// setTimeout(function () {
-					self.isAnimating = false;
-					if (!!event) {
-						self.focusOnPanel(self.$panels.eq(self.currentIndex));
-					}
-				// }, 100);
+				self.isAnimating = false;
+				if (!!event) {
+					self.focusOnPanel(self.$panels.eq(self.currentIndex));
+				}
 			}
 		});
 
@@ -253,12 +249,14 @@ var InfiniteCarousel = Class.extend({
 	},
 
 	adjustPosition: function() {
+		var adjX = this.options.adjOuterTrack;
+
 		if (this.currentIndex < this._length) {
 			this.previousIndex += this._length;
 			this.currentIndex += this._length;
 			if (this.breakpoint === 'desktop') {
 				TweenMax.fromTo(this.$outerMask, this.options.animationDuration, {
-					x: -80
+					x: -adjX
 				},{
 					x: 0
 				});
@@ -267,12 +265,13 @@ var InfiniteCarousel = Class.extend({
 				x: (this.scrollAmt * this.previousIndex) + '%'
 			});
 		}
+
 		if (this.currentIndex > (this._length * 2) - 1) {
 			this.previousIndex -= this._length;
 			this.currentIndex -= this._length;
 			if (this.breakpoint === 'desktop') {
 				TweenMax.fromTo(this.$outerMask, this.options.animationDuration, {
-					x: 80
+					x: adjX
 				},{
 					x: 0
 				});
@@ -281,6 +280,7 @@ var InfiniteCarousel = Class.extend({
 				x: (this.scrollAmt * this.previousIndex) + '%'
 			});
 		}
+
 	},
 
 	deactivatePanels: function() {
