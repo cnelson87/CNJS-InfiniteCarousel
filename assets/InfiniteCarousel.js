@@ -100,6 +100,7 @@ var InfiniteCarousel = Class.extend({
 
 		// auto-rotate items
 		if (this.options.autoRotate) {
+			this.autoRotationCounter = this._length * this.options.maxAutoRotations;
 			this.setAutoRotation = setInterval(function() {
 				self.autoRotation();
 			}, self.options.autoRotateInterval);
@@ -224,7 +225,6 @@ var InfiniteCarousel = Class.extend({
 
 	updateCarousel: function(event) {
 		var self = this;
-		var fomIndex;
 
 		this.isAnimating = true;
 
@@ -299,13 +299,13 @@ var InfiniteCarousel = Class.extend({
 	},
 
 	focusOnPanel: function($activePanel) {
-		var $focusContentEl = $activePanel.find(this.options.selectorContentEls).first();
 		var topOffset = this.options.topOffset;
 		var pnlTop = $activePanel.offset().top;
 		var pnlHeight = $activePanel.outerHeight();
 		var winTop = this.$window.scrollTop() + topOffset;
 		var winHeight = this.$window.height() - topOffset;
 		var scrollTop = pnlTop - topOffset;
+		var $focusContentEl = $activePanel.find(this.options.selectorContentEls).first();
 		var scrollSpeed = 200;
 
 		if (pnlTop < winTop || pnlTop + pnlHeight > winTop + winHeight) {
