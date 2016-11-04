@@ -65,7 +65,6 @@
 @media (min-width: 768px) {
 	.infinite-carousel {
 		min-height: 404px;
-		min-height: 444px;
 		padding: 40px 0 10px 0;
 	}
 		.infinite-carousel .arrow-nav.arrow-nav-prev {
@@ -80,18 +79,13 @@
 			width: 100%;
 			max-width: 400px;
 			left: -120px;
-			// left: -40px;
-			// padding: 20px 0;
-			// background: #000;
-			transition: left 0.3s;
 		}
 		// .infinite-carousel.adjusting .outer-mask {
-		// 	left: -40px;
-		// 	// transition: left 0.0s;
-		// }
-		.infinite-carousel .inner-track {
 
-		}
+		// }
+		// .infinite-carousel .inner-track {
+
+		// }
 		.infinite-carousel .carousel-item {
 			transition: transform 0.6s, width 0.6s;
 		}
