@@ -1,0 +1,16 @@
+{
+	"name": "CNJS-InfiniteCarousel",
+	"description": "Infinite Carousel widget",
+	"version": "0.1.0",
+	"main": [
+		"assets/InfiniteCarousel.js",
+		"assets/InfiniteCarousel.css"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/cnelson87/CNJS-InfiniteCarousel"
+	},
+	"license": "MIT",
+	"author": "Chris Nelson <cnelson87@gmail.com>",
+	"readmeFilename": "README.md"
+}

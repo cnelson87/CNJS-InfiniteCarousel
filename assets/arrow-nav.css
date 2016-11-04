@@ -1,0 +1,42 @@
+/*
+/* Arrow Nav
+/*-----------------------------------------------------*/
+
+.arrow-nav {
+	display: inline-block;
+	cursor: pointer;
+	width: 40px;
+	height: 50px;
+	background: #fff;
+	position: relative;
+}
+	.arrow-nav .arrow {
+		display: block;
+		width: 100%;
+		height: 100%;
+		background: url("images/arrow-nav.png") no-repeat 0 0;
+	}
+	.arrow-nav.arrow-nav-prev .arrow {
+		background-position: left center;
+	}
+	.arrow-nav.arrow-nav-next .arrow {
+		background-position: right center;
+	}
+	.arrow-nav:hover .arrow,
+	.arrow-nav:focus .arrow {
+		opacity: 0.6;
+	}
+
+.arrow-nav.disabled {
+	cursor: default;
+	pointer-events: none;
+}
+	.arrow-nav.disabled .arrow {
+		opacity: 0.2;
+	}
+
+@media (max-width: 767px) {
+	.arrow-nav {
+
+	}
+}

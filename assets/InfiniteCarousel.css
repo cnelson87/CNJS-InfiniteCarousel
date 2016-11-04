@@ -1,0 +1,102 @@
+/*
+/* INFINITE CAROUSEL
+/*-----------------------------------------------------*/
+
+
+/* base carousel styles */
+
+.infinite-carousel {
+	width: 100%;
+	height: auto;
+	margin: 0 auto 1.0em auto;
+	padding: 20px 0;
+	position: relative;
+}
+	.infinite-carousel .stretch-background {
+		width: 100vw;
+		height: 100%;
+		background: #ccc;
+		position: absolute;
+		left: calc(50% - 50vw);
+		right: calc(50% - 50vw);
+		top: 0;
+		bottom: 0;
+	}
+	.infinite-carousel .arrow-nav {
+		position: absolute;
+		top: calc(35% - 25px);
+	}
+	.infinite-carousel .arrow-nav.arrow-nav-prev {
+		left: -15px;
+	}
+	.infinite-carousel .arrow-nav.arrow-nav-next {
+		right: -15px;
+	}
+
+	.infinite-carousel .outer-mask {
+		width: calc(100% - 80px);
+		max-width: 400px;
+		margin: 0 auto;
+		position: relative;
+	}
+	.infinite-carousel .inner-track {
+		display: flex;
+		flex-wrap: nowrap;
+		width: 100%;
+		position: relative;
+	}
+	.infinite-carousel .inner-track:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+	.infinite-carousel .carousel-item {
+		flex-shrink: 0;
+		width: 100%;
+		/*opacity: 0.5;*/
+		padding: 0 10px;
+		position: relative;
+	}
+	.infinite-carousel .carousel-item.active {
+		/*opacity: 1.0;*/
+	}
+
+
+@media (min-width: 768px) {
+	.infinite-carousel {
+		min-height: 404px;
+		min-height: 444px;
+		padding: 40px 0 10px 0;
+	}
+		.infinite-carousel .arrow-nav.arrow-nav-prev {
+			left: calc(50% - 300px);
+			top: 120px;
+		}
+		.infinite-carousel .arrow-nav.arrow-nav-next {
+			right: calc(50% - 300px);
+			top: 120px;
+		}
+		.infinite-carousel .outer-mask {
+			width: 100%;
+			max-width: 400px;
+			left: -120px;
+			// left: -40px;
+			// padding: 20px 0;
+			// background: #000;
+			transition: left 0.3s;
+		}
+		// .infinite-carousel.adjusting .outer-mask {
+		// 	left: -40px;
+		// 	// transition: left 0.0s;
+		// }
+		.infinite-carousel .inner-track {
+
+		}
+		.infinite-carousel .carousel-item {
+			transition: transform 0.6s, width 0.6s;
+		}
+		.infinite-carousel .carousel-item.active {
+			width: calc(100% + 80px);
+			transform: translateY(-20px);
+		}
+}

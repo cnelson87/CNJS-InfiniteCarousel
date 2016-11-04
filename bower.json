@@ -1,0 +1,24 @@
+{
+	"name": "CNJS-InfiniteCarousel",
+	"description": "Infinite Carousel widget",
+	"version": "0.1.0",
+	"main": [
+		"assets/InfiniteCarousel.js",
+		"assets/InfiniteCarousel.css",
+		"assets/arrow-nav.css",
+		"assets/image-card.css"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/cnelson87/CNJS-InfiniteCarousel"
+	},
+	"dependencies": {
+		"jquery": "~2.2.4",
+		"jquery-touchswipe": "1.6.18",
+		"greensock": "~1.19.0",
+		"Class.js": "~1.0.0"
+	},
+	"ignore": [],
+	"license": "MIT",
+	"author": "Chris Nelson <cnelson87@gmail.com>"
+}
