@@ -330,6 +330,7 @@ var InfiniteCarousel = Class.extend({
 		this.$el = null;
 		this.$navPrev = null;
 		this.$navNext = null;
+		this.$outerMask = null;
 		this.$innerTrack = null;
 		this.$panels = null;
 		this.isInitialized = false;
